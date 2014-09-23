@@ -1,13 +1,13 @@
 from pymongo import MongoClient
 client = MongoClient()
 db = client['testalok']  #database name
-c = db.create_collection("reddit")
+c = db.create_collection("reddit_author")
 c = db.create_collection("reddit_post")
 
 def reddit_insert_author(db, author_dict):
     c = db.reddit_author
-    c.save(dict_json)
+    c.save(author_dict)
 
 def reddit_insert_post(db, post_dict):
     c = db.reddit_post
-    c.save(dict_json)
+    c.save(post_dict)
