@@ -1,3 +1,0 @@
-import csv
-with open(".csv") as csvfile:
-  spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')

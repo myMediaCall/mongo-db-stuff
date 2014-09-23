@@ -1,0 +1,27 @@
+#create databases
+
+from pymongo import MongoClient
+client = MongoClient()
+db = client['testalok']  #database name
+c = db.create_collection("reddit_author")
+c = db.create_collection("reddit_post")
+
+
+
+def reddit_insert_author(db, author_dict):
+    c = db.reddit_author
+    c.save(author_dict)
+
+def reddit_insert_post(db, post_dict):
+    c = db.reddit_post
+    c.save(post_dict)
+
+
+import csv
+from pymongo import MongoClient
+client = MongoClient()
+with open(".csv") as csvfile:
+  reader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+  for row in reader:
+    #read row as python dictionary
+    reddit_insert_post(db, post_dict)
