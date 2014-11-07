@@ -7,14 +7,25 @@ c = db.create_collection("reddit_author")
 c = db.create_collection("reddit_post")
 
 
+class Reddit:
+    pdb = None 
+    def save_author(db, author_dict):
+        c = db.reddit_author
+        c.save(author_dict)
 
-def reddit_insert_author(db, author_dict):
-    c = db.reddit_author
-    c.save(author_dict)
+    def save_post(db, post_dict):
+        c = db.reddit_post
+        c.save(post_dict)
 
-def reddit_insert_post(db, post_dict):
-    c = db.reddit_post
-    c.save(post_dict)
+class Facebook:
+    pdb = None
+    def save_post(db, post_dict):
+        db.facebook_post.save(post_dict)
+    
+
+
+
+
 
 
 import csv
